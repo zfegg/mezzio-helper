@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "maxLength": 128,
+      "format": "email"
+    },
+    "real_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[a-zA-Z0-9\\-]+(\\s[a-zA-Z0-9\\-]+)*$"
+    },
+    "password": {
+      "type": "string"
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "status": {
+      "type": "number",
+      "enum": [0, 1, 2]
+    },
+    "admin": {
+      "type": "boolean"
+    }
+  },
+  "required": ["email", "real_name", "password", "roles", "status", "admin"],
+  "additionalProperties": false
+}

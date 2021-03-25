@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "default": "TJ"
+    },
+    "name": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string",
+      "pattern": "^[A-Z0-9]{4}$"
+    },
+    "whichrule": {
+      "type": "number",
+      "enum": [0, 1, 2]
+    },
+    "awards": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "awards": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "num": {
+                "type": "number"
+              },
+              "id": {
+                "type": "number"
+              }
+            },
+            "required": ["num", "id"]
+          }
+        }
+      },
+      "required": ["awards"]
+    },
+    "common": {
+      "type": "boolean"
+    }
+  },
+  "required": ["name", "code", "whichrule", "common","awards"],
+  "additionalProperties": false
+}

@@ -1,0 +1,42 @@
+{
+    "name": "zfegg/mezzio-helper",
+    "authors": [
+        {
+            "name": "Moln",
+            "email": "moln.xie@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Zfegg\\MezzioHelper\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ZfeggTest\\MezzioHelper\\": "test/"
+        }
+    },
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "mezzio/mezzio": "^3.3"
+    },
+    "description": "Mezzio helpers",
+    "require-dev": {
+        "laminas/laminas-diactoros": "^2.5",
+        "slevomat/coding-standard": "^6.4",
+        "phpunit/phpunit": "^9.5",
+        "justinrainbow/json-schema": "^5.2",
+        "laminas/laminas-inputfilter": "^2.12",
+        "doctrine/orm": "^2.8"
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    }
+}
