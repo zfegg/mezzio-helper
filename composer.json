@@ -6,6 +6,8 @@
             "email": "moln.xie@gmail.com"
         }
     ],
+    "license": "MIT",
+    "description": "Mezzio helpers",
     "autoload": {
         "psr-4": {
             "Zfegg\\MezzioHelper\\": "src/"
@@ -20,7 +22,6 @@
         "php": "^7.4 || ^8.0",
         "mezzio/mezzio": "^3.3"
     },
-    "description": "Mezzio helpers",
     "require-dev": {
         "laminas/laminas-diactoros": "^2.5",
         "slevomat/coding-standard": "^6.4",
