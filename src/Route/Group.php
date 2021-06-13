@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Zfegg\MezzioHelper;
+namespace Zfegg\MezzioHelper\Route;
 
 use Mezzio\Application;
 
@@ -41,6 +41,11 @@ class Group
         return new self('', $middlewares);
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
     public function apply(Application $app): void
     {
         foreach ($this->getRoutes() as $route) {
@@ -52,12 +57,9 @@ class Group
     /**
      * Add a route for the route middleware to match.
      *
-     * @param string|array|callable|MiddlewareInterface|RequestHandlerInterface $middleware
+     * @param string|array|callable|\Psr\Http\Server\MiddlewareInterface|\Psr\Http\Server\RequestHandlerInterface $middleware
      *     Middleware or request handler (or service name resolving to one of
      *     those types) to associate with route.
-     * @param null|array $methods HTTP method to accept; null indicates any.
-     * @param null|string $name The name of the route.
-     * @param array $options The options of the route.
      */
     public function route(
         string $path,
@@ -88,10 +90,9 @@ class Group
     }
 
     /**
-     * @param string|array|callable|MiddlewareInterface|RequestHandlerInterface $middleware
+     * @param string|array|callable|\Psr\Http\Server\MiddlewareInterface|\Psr\Http\Server\RequestHandlerInterface $middleware
      *     Middleware or request handler (or service name resolving to one of
      *     those types) to associate with route.
-     * @param null|string $name The name of the route.
      */
     public function get(string $path, $middleware, string $name = null, array $options = []): self
     {
@@ -99,10 +100,9 @@ class Group
     }
 
     /**
-     * @param string|array|callable|MiddlewareInterface|RequestHandlerInterface $middleware
+     * @param string|array|callable|\Psr\Http\Server\MiddlewareInterface|\Psr\Http\Server\RequestHandlerInterface $middleware
      *     Middleware or request handler (or service name resolving to one of
      *     those types) to associate with route.
-     * @param null|string $name The name of the route.
      */
     public function post(string $path, $middleware, ?string $name = null, array $options = []): self
     {
@@ -110,7 +110,7 @@ class Group
     }
 
     /**
-     * @param string|array|callable|MiddlewareInterface|RequestHandlerInterface $middleware
+     * @param string|array|callable|\Psr\Http\Server\MiddlewareInterface|\Psr\Http\Server\RequestHandlerInterface $middleware
      *     Middleware or request handler (or service name resolving to one of
      *     those types) to associate with route.
      * @param null|string $name The name of the route.
@@ -121,7 +121,7 @@ class Group
     }
 
     /**
-     * @param string|array|callable|MiddlewareInterface|RequestHandlerInterface $middleware
+     * @param string|array|callable|\Psr\Http\Server\MiddlewareInterface|\Psr\Http\Server\RequestHandlerInterface $middleware
      *     Middleware or request handler (or service name resolving to one of
      *     those types) to associate with route.
      * @param null|string $name The name of the route.
@@ -132,10 +132,9 @@ class Group
     }
 
     /**
-     * @param string|array|callable|MiddlewareInterface|RequestHandlerInterface $middleware
+     * @param string|array|callable|\Psr\Http\Server\MiddlewareInterface|\Psr\Http\Server\RequestHandlerInterface $middleware
      *     Middleware or request handler (or service name resolving to one of
      *     those types) to associate with route.
-     * @param null|string $name The name of the route.
      */
     public function delete(string $path, $middleware, string $name = null, array $options = []): self
     {
@@ -143,7 +142,7 @@ class Group
     }
 
     /**
-     * @param string|array|callable|MiddlewareInterface|RequestHandlerInterface $middleware
+     * @param string|array|callable|\Psr\Http\Server\MiddlewareInterface|\Psr\Http\Server\RequestHandlerInterface $middleware
      *     Middleware or request handler (or service name resolving to one of
      *     those types) to associate with route.
      * @param null|string $name The name of the route.
